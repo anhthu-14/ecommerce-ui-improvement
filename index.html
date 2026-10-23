@@ -1,127 +1,415 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Giao diện mẫu cải tiến thẻ sản phẩm thương mại điện tử, tập trung vào giá khuyến mãi và khả năng hiển thị trên điện thoại.">
-  <title>Shopee UI Improvement - Thẻ sản phẩm</title>
+  <meta name="description" content="Demo Mall - giao diện gợi ý sản phẩm lấy cảm hứng từ Shopee, cải tiến thẻ sản phẩm bằng HTML5 và CSS3.">
+  <title>Gợi ý hôm nay | Demo Mall</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
+  <!-- Thanh thông tin trên cùng -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <a href="#products">Kênh Người Bán</a>
+        <span class="top-divider">|</span>
+        <a href="#products">Trở thành Người bán</a>
+        <span class="top-divider">|</span>
+        <a href="#products">Tải ứng dụng</a>
+        <span class="top-divider">|</span>
+        <span>Kết nối:
+          <a href="#products" aria-label="Facebook">f</a>
+          <a href="#products" aria-label="Instagram">◎</a>
+        </span>
+      </div>
+
+      <div class="topbar-right">
+        <a href="#products">♧ Thông báo</a>
+        <a href="#products">ⓘ Hỗ trợ</a>
+        <a href="#products">◎ Tiếng Việt⌄</a>
+        <a href="#products">Đăng ký</a>
+        <span class="top-divider">|</span>
+        <a href="#products">Đăng nhập</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header màu cam lấy cảm hứng từ Shopee -->
+  <header class="main-header">
     <div class="header-inner">
-      <a class="brand" href="#" aria-label="Trang chủ Demo Mall">
-        <span class="brand-mark">D</span>
-        <span>Demo Mall</span>
+      <a class="brand" href="#" aria-label="Demo Mall - Trang chủ">
+        <span class="brand-logo">D</span>
+        <span class="brand-name">Demo Mall</span>
       </a>
-      <p class="header-note">Giao diện minh họa cải tiến thẻ sản phẩm</p>
+
+      <div class="search-area">
+        <form class="search-form" action="#products" method="get">
+          <label class="visually-hidden" for="search">
+            Tìm kiếm sản phẩm
+          </label>
+          <input
+            id="search"
+            type="search"
+            name="q"
+            placeholder="Tìm váy đẹp, giày cao gót, phụ kiện..."
+          >
+          <button type="submit" aria-label="Tìm kiếm">⌕</button>
+        </form>
+
+        <nav class="search-suggestions" aria-label="Từ khóa gợi ý">
+          <a href="#products">Váy kiểu Pháp</a>
+          <a href="#products">Giày cao gót</a>
+          <a href="#products">Kẹp tóc dễ thương</a>
+          <a href="#products">Áo croptop</a>
+          <a href="#products">Thời trang nữ</a>
+        </nav>
+      </div>
+
+      <a class="cart-link" href="#products" aria-label="Giỏ hàng">
+        <span class="cart-icon">🛒</span>
+      </a>
     </div>
   </header>
 
   <main class="page-container">
-    <section class="intro">
-      <p class="eyebrow">GỢI Ý MUA SẮM</p>
-      <h1>Sản phẩm nổi bật</h1>
-      <p class="intro-text">Thông tin quan trọng được sắp xếp rõ ràng để bạn dễ xem giá, nhận biết ưu đãi và so sánh sản phẩm.</p>
+    <!-- Danh mục sản phẩm -->
+    <nav class="category-nav" aria-label="Danh mục sản phẩm">
+      <a href="#products" class="category-menu">☰ Danh mục</a>
+      <a href="#products">Thời Trang Nữ</a>
+      <a href="#products">Giày Dép</a>
+      <a href="#products">Phụ Kiện</a>
+      <a href="#products">Mẹ &amp; Bé</a>
+      <a href="#products">Xu Hướng</a>
+      <a href="#products">Ưu Đãi</a>
+    </nav>
+
+    <!-- Tiêu đề gợi ý -->
+    <section class="recommendation-heading">
+      <div>
+        <p class="breadcrumb">DEMO MALL &rsaquo; GỢI Ý MUA SẮM</p>
+        <h1>GỢI Ý HÔM NAY</h1>
+        <p class="heading-description">
+          Khám phá những món đồ xinh xắn với giá ưu đãi dành cho bạn.
+        </p>
+      </div>
+      <span class="heading-decoration">MUA SẮM VUI ✦</span>
     </section>
 
-    <section class="product-section" aria-labelledby="product-heading">
-      <div class="section-heading">
-        <h2 id="product-heading">Đang được quan tâm</h2>
-        <span class="result-count">4 sản phẩm mẫu</span>
+    <!-- Dải lợi ích -->
+    <section class="benefit-strip" aria-label="Ưu điểm mua sắm">
+      <div class="benefit-item">
+        <span class="benefit-icon">%</span>
+        <div>
+          <strong>Giá tốt mỗi ngày</strong>
+          <p>Dễ dàng so sánh ưu đãi</p>
+        </div>
       </div>
 
+      <div class="benefit-item">
+        <span class="benefit-icon">✓</span>
+        <div>
+          <strong>Thông tin rõ ràng</strong>
+          <p>Giá bán và giá gốc</p>
+        </div>
+      </div>
+
+      <div class="benefit-item">
+        <span class="benefit-icon">♡</span>
+        <div>
+          <strong>Chọn món yêu thích</strong>
+          <p>Tham khảo sản phẩm nổi bật</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Khu vực thẻ sản phẩm được cải tiến -->
+    <section class="product-section" id="products"
+      aria-labelledby="product-heading">
+
+      <div class="section-title">
+        <div>
+          <h2 id="product-heading">Gợi ý hôm nay</h2>
+          <p>Khám phá sản phẩm phù hợp với phong cách của bạn</p>
+        </div>
+        <span class="product-count">8 sản phẩm</span>
+      </div>
+
+      <div class="sort-bar">
+        <span class="sort-label">Sắp xếp theo:</span>
+        <a class="sort-option active" href="#products">Gợi ý</a>
+        <a class="sort-option" href="#products">Mới nhất</a>
+        <a class="sort-option" href="#products">Bán chạy</a>
+        <a class="sort-option" href="#products">Giá thấp đến cao</a>
+      </div>
+
+      <!-- Grid 4 cột x 2 hàng trên màn hình máy tính -->
       <div class="product-grid">
+
+        <!-- SẢN PHẨM 1 -->
         <article class="product-card">
-          <div class="product-image-wrap">
-            <span class="discount-badge">-20%</span>
-            <img src="images/backpack.svg" alt="Hình minh họa balo du lịch màu xanh" class="product-image">
-            <span class="image-caption">Hình minh họa</span>
-          </div>
+          <a class="product-image-link" href="#vay-phap"
+            aria-label="Xem váy đẹp kiểu Pháp">
+            <div class="product-image-wrap">
+              <img src="images/Đầm nữ.webp"
+                alt="Váy đẹp kiểu Pháp phong cách nhẹ nhàng"
+                class="product-image">
+              <span class="discount-badge">-20%</span>
+              <span class="favorite-badge">Yêu thích</span>
+            </div>
+          </a>
+
           <div class="product-info">
-            <p class="product-category">Balo & túi</p>
-            <h3 class="product-name">Balo du lịch gọn nhẹ</h3>
+            <span class="product-tag">Phong cách Pháp</span>
+            <h3 class="product-name">Váy đẹp kiểu Pháp phong cách nhẹ nhàng</h3>
+            <div class="promo-label">Giá tốt mỗi ngày</div>
             <div class="price-row">
-              <span class="sale-price">320.000₫</span>
-              <span class="original-price">400.000₫</span>
+              <span class="sale-price">189.000₫</span>
+              <span class="original-price">239.000₫</span>
             </div>
-            <p class="saving">Tiết kiệm 80.000₫</p>
-            <div class="card-bottom">
-              <span class="rating" aria-label="Đánh giá 4,8 trên 5">★ 4.8 <span>(128)</span></span>
-              <button class="buy-button" type="button" aria-label="Xem sản phẩm Balo du lịch gọn nhẹ">Xem sản phẩm</button>
+            <p class="saving">Tiết kiệm 50.000₫</p>
+            <div class="product-meta">
+              <span class="rating">★ 4.9 <span class="rating-count">(126)</span></span>
+              <span class="sold-count">Đã bán 320</span>
             </div>
+            <div class="location">⌖ TP. Hồ Chí Minh</div>
+            <a class="buy-button" href="#vay-phap">Xem sản phẩm</a>
           </div>
         </article>
 
+        <!-- SẢN PHẨM 2 -->
         <article class="product-card">
-          <div class="product-image-wrap">
-            <span class="discount-badge">-15%</span>
-            <img src="images/headphones.svg" alt="Hình minh họa tai nghe không dây màu đen" class="product-image">
-            <span class="image-caption">Hình minh họa</span>
-          </div>
+          <a class="product-image-link" href="#giay-cao-got"
+            aria-label="Xem giày cao gót công chúa">
+            <div class="product-image-wrap">
+              <img src="images/Giày cao gót.jpg"
+                alt="Giày cao gót công chúa thanh lịch"
+                class="product-image">
+              <span class="discount-badge">-25%</span>
+              <span class="favorite-badge">Yêu thích</span>
+            </div>
+          </a>
+
           <div class="product-info">
-            <p class="product-category">Thiết bị điện tử</p>
-            <h3 class="product-name">Tai nghe không dây</h3>
+            <span class="product-tag">Thanh lịch</span>
+            <h3 class="product-name">Giày cao gót công chúa thanh lịch</h3>
+            <div class="promo-label">Ưu đãi nổi bật</div>
             <div class="price-row">
-              <span class="sale-price">510.000₫</span>
-              <span class="original-price">600.000₫</span>
+              <span class="sale-price">259.000₫</span>
+              <span class="original-price">345.000₫</span>
             </div>
-            <p class="saving">Tiết kiệm 90.000₫</p>
-            <div class="card-bottom">
-              <span class="rating" aria-label="Đánh giá 4,7 trên 5">★ 4.7 <span>(96)</span></span>
-              <button class="buy-button" type="button" aria-label="Xem sản phẩm Tai nghe không dây">Xem sản phẩm</button>
+            <p class="saving">Tiết kiệm 86.000₫</p>
+            <div class="product-meta">
+              <span class="rating">★ 4.8 <span class="rating-count">(98)</span></span>
+              <span class="sold-count">Đã bán 215</span>
             </div>
+            <div class="location">⌖ TP. Hồ Chí Minh</div>
+            <a class="buy-button" href="#giay-cao-got">Xem sản phẩm</a>
           </div>
         </article>
 
+        <!-- SẢN PHẨM 3 -->
         <article class="product-card">
-          <div class="product-image-wrap">
-            <span class="discount-badge">-25%</span>
-            <img src="images/bottle.svg" alt="Hình minh họa bình nước giữ nhiệt màu kem" class="product-image">
-            <span class="image-caption">Hình minh họa</span>
-          </div>
+          <a class="product-image-link" href="#kep-toc"
+            aria-label="Xem set kẹp tóc cho bé gái">
+            <div class="product-image-wrap">
+              <img src="images/set kẹp tóc.jpg"
+                alt="Set kẹp tóc dễ thương nhiều màu cho bé gái"
+                class="product-image">
+              <span class="discount-badge">-30%</span>
+              <span class="favorite-badge">Yêu thích</span>
+            </div>
+          </a>
+
           <div class="product-info">
-            <p class="product-category">Đồ dùng cá nhân</p>
-            <h3 class="product-name">Bình giữ nhiệt 600 ml</h3>
+            <span class="product-tag">Dễ thương</span>
+            <h3 class="product-name">Set kẹp tóc dễ thương cho bé gái</h3>
+            <div class="promo-label">Giá tốt mỗi ngày</div>
             <div class="price-row">
-              <span class="sale-price">225.000₫</span>
-              <span class="original-price">300.000₫</span>
+              <span class="sale-price">35.000₫</span>
+              <span class="original-price">50.000₫</span>
             </div>
-            <p class="saving">Tiết kiệm 75.000₫</p>
-            <div class="card-bottom">
-              <span class="rating" aria-label="Đánh giá 4,9 trên 5">★ 4.9 <span>(214)</span></span>
-              <button class="buy-button" type="button" aria-label="Xem sản phẩm Bình giữ nhiệt 600 ml">Xem sản phẩm</button>
+            <p class="saving">Tiết kiệm 15.000₫</p>
+            <div class="product-meta">
+              <span class="rating">★ 4.9 <span class="rating-count">(240)</span></span>
+              <span class="sold-count">Đã bán 680</span>
             </div>
+            <div class="location">⌖ TP. Hồ Chí Minh</div>
+            <a class="buy-button" href="#kep-toc">Xem sản phẩm</a>
           </div>
         </article>
 
+        <!-- SẢN PHẨM 4 -->
         <article class="product-card">
-          <div class="product-image-wrap">
-            <span class="discount-badge">-10%</span>
-            <img src="images/shoes.svg" alt="Hình minh họa giày thể thao màu trắng và cam" class="product-image">
-            <span class="image-caption">Hình minh họa</span>
-          </div>
+          <a class="product-image-link" href="#croptop"
+            aria-label="Xem áo croptop cánh dơi nữ trễ vai">
+            <div class="product-image-wrap">
+              <img src="images/Áo croptop.webp"
+                alt="Áo croptop cánh dơi nữ trễ vai"
+                class="product-image">
+              <span class="discount-badge">-15%</span>
+              <span class="favorite-badge">Yêu thích</span>
+            </div>
+          </a>
+
           <div class="product-info">
-            <p class="product-category">Thời trang</p>
-            <h3 class="product-name">Giày thể thao năng động</h3>
+            <span class="product-tag">Phong cách trẻ</span>
+            <h3 class="product-name">Áo croptop cánh dơi nữ trễ vai</h3>
+            <div class="promo-label">Ưu đãi nổi bật</div>
             <div class="price-row">
-              <span class="sale-price">720.000₫</span>
-              <span class="original-price">800.000₫</span>
+              <span class="sale-price">129.000₫</span>
+              <span class="original-price">152.000₫</span>
             </div>
-            <p class="saving">Tiết kiệm 80.000₫</p>
-            <div class="card-bottom">
-              <span class="rating" aria-label="Đánh giá 4,6 trên 5">★ 4.6 <span>(73)</span></span>
-              <button class="buy-button" type="button" aria-label="Xem sản phẩm Giày thể thao năng động">Xem sản phẩm</button>
+            <p class="saving">Tiết kiệm 23.000₫</p>
+            <div class="product-meta">
+              <span class="rating">★ 4.7 <span class="rating-count">(84)</span></span>
+              <span class="sold-count">Đã bán 190</span>
             </div>
+            <div class="location">⌖ Hà Nội</div>
+            <a class="buy-button" href="#croptop">Xem sản phẩm</a>
           </div>
         </article>
+
+        <!-- SẢN PHẨM 5 -->
+        <article class="product-card">
+          <a class="product-image-link" href="#balo"
+            aria-label="Xem balo mini nữ">
+            <div class="product-image-wrap">
+              <img src="images/balo mini nữ.webp"
+                alt="Balo mini nữ phong cách Hàn Quốc"
+                class="product-image">
+              <span class="discount-badge">-20%</span>
+              <span class="favorite-badge">Yêu thích</span>
+            </div>
+          </a>
+
+          <div class="product-info">
+            <span class="product-tag">Phong cách Hàn</span>
+            <h3 class="product-name">Balo mini nữ phong cách Hàn Quốc</h3>
+            <div class="promo-label">Giá tốt mỗi ngày</div>
+            <div class="price-row">
+              <span class="sale-price">179.000₫</span>
+              <span class="original-price">225.000₫</span>
+            </div>
+            <p class="saving">Tiết kiệm 46.000₫</p>
+            <div class="product-meta">
+              <span class="rating">★ 4.8 <span class="rating-count">(76)</span></span>
+              <span class="sold-count">Đã bán 140</span>
+            </div>
+            <div class="location">⌖ TP. Hồ Chí Minh</div>
+            <a class="buy-button" href="#balo">Xem sản phẩm</a>
+          </div>
+        </article>
+
+        <!-- SẢN PHẨM 6 -->
+        <article class="product-card">
+          <a class="product-image-link" href="#tui-xach"
+            aria-label="Xem túi xách nữ">
+            <div class="product-image-wrap">
+              <img src="images/túi xách nữ.webp"
+                alt="Túi xách nữ dáng nhỏ thanh lịch"
+                class="product-image">
+              <span class="discount-badge">-18%</span>
+              <span class="favorite-badge">Yêu thích</span>
+            </div>
+          </a>
+
+          <div class="product-info">
+            <span class="product-tag">Thanh lịch</span>
+            <h3 class="product-name">Túi xách nữ dáng nhỏ thanh lịch</h3>
+            <div class="promo-label">Ưu đãi nổi bật</div>
+            <div class="price-row">
+              <span class="sale-price">219.000₫</span>
+              <span class="original-price">269.000₫</span>
+            </div>
+            <p class="saving">Tiết kiệm 50.000₫</p>
+            <div class="product-meta">
+              <span class="rating">★ 4.9 <span class="rating-count">(112)</span></span>
+              <span class="sold-count">Đã bán 270</span>
+            </div>
+            <div class="location">⌖ Hà Nội</div>
+            <a class="buy-button" href="#tui-xach">Xem sản phẩm</a>
+          </div>
+        </article>
+
+        <!-- SẢN PHẨM 7 -->
+        <article class="product-card">
+          <a class="product-image-link" href="#cardigan"
+            aria-label="Xem áo cardigan nữ">
+            <div class="product-image-wrap">
+              <img src="images/áo cardigan nữ.webp"
+                alt="Áo cardigan nữ dáng ngắn nhẹ nhàng"
+                class="product-image">
+              <span class="discount-badge">-12%</span>
+              <span class="favorite-badge">Yêu thích</span>
+            </div>
+          </a>
+
+          <div class="product-info">
+            <span class="product-tag">Nhẹ nhàng</span>
+            <h3 class="product-name">Áo cardigan nữ dáng ngắn nhẹ nhàng</h3>
+            <div class="promo-label">Giá tốt mỗi ngày</div>
+            <div class="price-row">
+              <span class="sale-price">159.000₫</span>
+              <span class="original-price">180.000₫</span>
+            </div>
+            <p class="saving">Tiết kiệm 21.000₫</p>
+            <div class="product-meta">
+              <span class="rating">★ 4.7 <span class="rating-count">(65)</span></span>
+              <span class="sold-count">Đã bán 105</span>
+            </div>
+            <div class="location">⌖ TP. Hồ Chí Minh</div>
+            <a class="buy-button" href="#cardigan">Xem sản phẩm</a>
+          </div>
+        </article>
+
+        <!-- SẢN PHẨM 8 -->
+        <article class="product-card">
+          <a class="product-image-link" href="#day-chuyen"
+            aria-label="Xem dây chuyền hoa">
+            <div class="product-image-wrap">
+              <img src="images/dây chuyền hoa.webp"
+                alt="Dây chuyền hoa nhỏ phong cách nữ tính"
+                class="product-image">
+              <span class="discount-badge">-22%</span>
+              <span class="favorite-badge">Yêu thích</span>
+            </div>
+          </a>
+
+          <div class="product-info">
+            <span class="product-tag">Nữ tính</span>
+            <h3 class="product-name">Dây chuyền hoa nhỏ phong cách nữ tính</h3>
+            <div class="promo-label">Ưu đãi nổi bật</div>
+            <div class="price-row">
+              <span class="sale-price">79.000₫</span>
+              <span class="original-price">101.000₫</span>
+            </div>
+            <p class="saving">Tiết kiệm 22.000₫</p>
+            <div class="product-meta">
+              <span class="rating">★ 4.8 <span class="rating-count">(91)</span></span>
+              <span class="sold-count">Đã bán 230</span>
+            </div>
+            <div class="location">⌖ TP. Hồ Chí Minh</div>
+            <a class="buy-button" href="#day-chuyen">Xem sản phẩm</a>
+          </div>
+        </article>
+
       </div>
-      <p class="demo-note">Lưu ý: Đây là trang minh họa phục vụ bài tập, không phải cửa hàng thật. Nút “Xem sản phẩm” chưa kết nối chức năng mua hàng.</p>
+
+      <p class="demo-note">
+        Đây là giao diện thực hành HTML5/CSS3 lấy cảm hứng từ bố cục
+        thương mại điện tử. Demo Mall không phải website Shopee chính thức.
+        Giá, đánh giá và số lượng đã bán là dữ liệu minh họa.
+        Các liên kết sản phẩm chưa kết nối chức năng mua hàng.
+      </p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>Bài tập HTML5 & CSS3 · Cải tiến giao diện thẻ sản phẩm</p>
+    <a class="footer-brand" href="#">Demo Mall</a>
+    <p>Bài tập phát triển ứng dụng Web/TMĐT · Cải tiến thẻ sản phẩm</p>
+    <p>Thực hành HTML5 và CSS3 · Giao diện tham khảo phong cách thương mại điện tử</p>
   </footer>
 </body>
 </html>

@@ -1,16 +1,17 @@
 
-/* =========================
+/* =====================================================
    1. THIET LAP CHUNG
-========================= */
+===================================================== */
 :root {
-  --shopee-orange: #ee4d2d;
-  --shopee-orange-dark: #d73211;
-  --orange-light: #fff3ef;
-  --text-primary: #222222;
-  --text-secondary: #757575;
-  --border-color: #e8e8e8;
+  --shopee-orange: #ff4d2d;
+  --shopee-orange-dark: #e83e20;
+  --orange-light: #fff0eb;
+  --text-primary: #40596d;
+  --text-secondary: #8293a1;
+  --border-color: #e9e9e9;
   --page-background: #f5f5f5;
-  --success-green: #159447;
+  --success-green: #159b59;
+  --card-radius: 13px;
 }
 
 * {
@@ -45,6 +46,11 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -57,9 +63,9 @@ a {
   border: 0;
 }
 
-/* =========================
+/* =====================================================
    2. THANH THONG TIN TREN
-========================= */
+===================================================== */
 .topbar {
   color: #fff;
   background: var(--shopee-orange);
@@ -87,16 +93,12 @@ a {
   color: #ffe1d8;
 }
 
-/* =========================
+/* =====================================================
    3. HEADER VA TIM KIEM
-========================= */
+===================================================== */
 .main-header {
-  background: linear-gradient(
-    120deg,
-    #f63f2d,
-    #ff6534
-  );
   color: #fff;
+  background: linear-gradient(120deg, #f63f2d, #ff6534);
 }
 
 .header-inner {
@@ -145,7 +147,7 @@ a {
   display: flex;
   overflow: hidden;
   padding: 3px;
-  border-radius: 3px;
+  border-radius: 5px;
   background: #fff;
   box-shadow: 0 2px 4px #8e261c20;
 }
@@ -168,7 +170,7 @@ a {
 .search-form button {
   flex: 0 0 52px;
   border: 0;
-  border-radius: 2px;
+  border-radius: 3px;
   background: var(--shopee-orange);
   color: #fff;
   cursor: pointer;
@@ -204,9 +206,9 @@ a {
   font-size: 32px;
 }
 
-/* =========================
+/* =====================================================
    4. KHU VUC NOI DUNG
-========================= */
+===================================================== */
 .page-container {
   width: min(1200px, calc(100% - 32px));
   margin: 0 auto;
@@ -231,9 +233,9 @@ a {
   color: var(--shopee-orange);
 }
 
-/* =========================
+/* =====================================================
    5. TIEU DE GOI Y
-========================= */
+===================================================== */
 .recommendation-heading {
   min-height: 112px;
   padding: 23px 26px;
@@ -271,9 +273,9 @@ a {
   letter-spacing: 1px;
 }
 
-/* =========================
+/* =====================================================
    6. CAC LOI ICH
-========================= */
+===================================================== */
 .benefit-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -289,7 +291,7 @@ a {
   padding: 14px 18px;
   background: #fff;
   border: 1px solid var(--border-color);
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .benefit-icon {
@@ -316,13 +318,14 @@ a {
   font-size: 12px;
 }
 
-/* =========================
+/* =====================================================
    7. DANH SACH SAN PHAM
-========================= */
+===================================================== */
 .product-section {
   padding: 20px;
   margin-bottom: 22px;
   background: #fff;
+  border-radius: 10px;
 }
 
 .section-title {
@@ -366,8 +369,10 @@ a {
 .sort-option {
   padding: 8px 14px;
   border: 1px solid #e4e4e4;
-  border-radius: 2px;
+  border-radius: 4px;
   background: #fff;
+  cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .sort-option:hover,
@@ -377,40 +382,54 @@ a {
   border-color: var(--shopee-orange);
 }
 
-/* 6 cot tren man hinh lon */
+/* Luoi san pham tren may tinh */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 12px;
+  gap: 14px;
   padding-top: 16px;
+  align-items: stretch;
 }
 
-/* =========================
+/* =====================================================
    8. THE SAN PHAM
-========================= */
+   Thuc hanh element, class, descendant selector
+   va Box Model: margin, padding, border
+===================================================== */
+
+/* Class selector: dinh dang toan bo the san pham */
 .product-card {
   min-width: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid #e2e2e2;
-  border-radius: 4px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #e9e9e9;
+  border-radius: var(--card-radius);
   background: #fff;
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  box-shadow: 0 3px 14px rgb(0 0 0 / 7%);
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease,
+              transform 0.2s ease;
 }
 
 .product-card:hover {
-  z-index: 1;
+  border-color: #f4c4b8;
+  box-shadow: 0 5px 16px rgb(0 0 0 / 10%);
   transform: translateY(-2px);
-  border-color: var(--shopee-orange);
-  box-shadow: 0 3px 12px #00000014;
+}
+
+/* Element selector va class selector cho anh */
+.product-card img {
+  max-width: 100%;
 }
 
 .product-image-link {
   display: block;
+  flex-shrink: 0;
+  padding: 7px 7px 0;
 }
 
 .product-image-wrap {
@@ -418,7 +437,8 @@ a {
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  background: #f8f8f8;
+  border-radius: 10px;
+  background: #f5f5f5;
 }
 
 .product-image {
@@ -427,11 +447,25 @@ a {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.3s ease;
 }
 
 .product-card:hover .product-image {
-  transform: scale(1.035);
+  transform: scale(1.02);
+}
+
+/* Nhan yeu thich */
+.favorite-badge {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 0;
+  padding: 5px 8px;
+  border-radius: 0 2px 2px 0;
+  color: #fff;
+  background: var(--shopee-orange);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 /* Nhan giam gia */
@@ -440,225 +474,250 @@ a {
   z-index: 2;
   top: 0;
   right: 0;
-  min-width: 47px;
-  padding: 5px 4px;
+  min-width: 51px;
+  padding: 5px 5px 4px;
+  border-radius: 0 0 0 4px;
   color: var(--shopee-orange);
-  background: #fff0e8;
+  background: #ffe4db;
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 .discount-badge::after {
   content: "GIẢM";
   display: block;
-  color: #fff;
-  background: var(--shopee-orange);
-  font-size: 9px;
-  font-weight: 500;
-}
-
-/* Nhan yeu thich */
-.favorite-badge {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  z-index: 2;
-  padding: 4px 7px;
-  border-radius: 0 2px 2px 0;
+  margin: 3px -5px -4px;
+  padding: 3px 4px;
+  border-radius: 0 0 0 4px;
   color: #fff;
   background: var(--shopee-orange);
   font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
+/* Chu phu tren anh */
 .image-label {
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 5px 4px;
+  padding: 6px;
   color: #fff;
-  background: linear-gradient(transparent, #00000075);
+  background: linear-gradient(transparent, rgb(0 0 0 / 65%));
   font-size: 10px;
-  letter-spacing: 0.5px;
   text-align: center;
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s ease;
 }
 
 .product-card:hover .image-label {
   opacity: 1;
 }
 
-/* Thong tin san pham */
+/* Khoi noi dung: padding tao khoang cach ben trong */
 .product-info {
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 10px 11px 13px;
 }
 
-.product-tag {
+/* Descendant selector: .product-card .product-tag */
+.product-card .product-tag {
   align-self: flex-start;
   max-width: 100%;
-  margin-bottom: 6px;
-  padding: 2px 5px;
+  min-height: 20px;
+  margin: 0 0 6px;
+  padding: 3px 8px;
   overflow: hidden;
-  border: 1px solid #ffb5a3;
-  border-radius: 2px;
+  border: 0;
+  border-radius: 5px;
   color: var(--shopee-orange);
-  font-size: 10px;
+  background: var(--orange-light);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.35;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.product-name {
-  min-height: 40px;
-  margin: 0 0 9px;
+/* Ten san pham: dam, mau xanh xam, toi da 2 dong */
+.product-card .product-name {
+  min-height: 0;
+  margin: 0 0 8px;
   overflow: hidden;
-  color: #333;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.5;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   line-clamp: 2;
 }
 
-.promo-label {
+/* Nhan uu dai */
+.product-card .promo-label {
   align-self: flex-start;
   max-width: 100%;
-  margin-bottom: 7px;
-  padding: 3px 5px;
+  min-height: 20px;
+  margin: 0 0 5px;
+  padding: 3px 8px;
   overflow: hidden;
-  border: 1px solid #ffb5a3;
-  border-radius: 2px;
+  border: 0;
+  border-radius: 5px;
   color: var(--shopee-orange);
-  font-size: 10px;
+  background: #fff0eb;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.35;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-/* Cai tien cach hien thi gia */
-.price-row {
+/* Gia ban va gia goc */
+.product-card .price-row {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 5px;
-  margin-top: auto;
+  gap: 2px 7px;
+  margin-top: 0;
 }
 
-.sale-price {
+.product-card .sale-price {
   color: var(--shopee-orange);
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.4;
+  font-size: 23px;
+  font-weight: 800;
+  line-height: 1.25;
   white-space: nowrap;
 }
 
-.original-price {
-  color: #999;
-  font-size: 11px;
+.product-card .original-price {
+  color: #8b9ba7;
+  font-size: 12px;
+  line-height: 1.4;
   text-decoration: line-through;
   white-space: nowrap;
 }
 
-.saving {
-  margin: 3px 0 9px;
+/* Tiet kiem */
+.product-card .saving {
+  align-self: flex-start;
+  margin: 3px 0 8px;
+  padding: 2px 7px;
+  border-radius: 5px;
   color: var(--success-green);
+  background: #eaf8ef;
   font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
-/* Danh gia va so luong da ban */
+
+/* Khu vực đánh giá và số lượng đã bán */
 .product-meta {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 4px;
-  padding-top: 8px;
-  border-top: 1px solid #f0f0f0;
-  font-size: 11px;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid #eeeeee;
+  font-size: 12px;
 }
 
+/* Điểm đánh giá */
 .rating {
   color: #eea500;
-  white-space: nowrap;
 }
 
+/* Số lượt đánh giá */
 .rating-count {
-  color: #888;
+  color: #888888;
 }
 
+/* Số lượng đã bán */
 .sold-count {
-  color: #888;
-  font-size: 10px;
+  color: #757575;
+  text-align: right;
 }
 
-.location {
-  margin-top: 8px;
-  color: #888;
-  font-size: 10px;
+
+/* Dia diem */
+.product-card .location {
+  margin: 5px 0 0;
+  color: #8293a1;
+  font-size: 11px;
+  line-height: 1.4;
 }
 
-/* Nut thao tac */
-.buy-button {
+
+.product-card .buy-button {
   display: block;
-  margin-top: 10px;
-  padding: 9px 5px;
-  border: 1px solid var(--shopee-orange);
-  border-radius: 2px;
-  color: var(--shopee-orange);
-  background: #fff;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 600;
-  transition:
-    color 0.2s,
-    background 0.2s;
-}
+  flex-shrink: 0;
+  width: 100%;
 
-.buy-button:hover,
-.buy-button:focus-visible {
+  margin-top: auto;
+  padding: 10px 5px;
+
+  border: 1px solid var(--shopee-orange);
+  border-radius: 5px;
   color: #fff;
   background: var(--shopee-orange);
-}
 
-/* =========================
-   9. GHI CHU VA CHAN TRANG
-========================= */
-.demo-note {
-  margin: 20px 0 0;
-  padding: 12px;
-  border-left: 3px solid #ffb49e;
-  background: #fff8f5;
-  color: #777;
-  font-size: 11px;
-  line-height: 1.7;
-}
-
-.site-footer {
-  padding: 25px 16px 30px;
-  color: #888;
   text-align: center;
-  font-size: 12px;
-}
-
-.site-footer p {
-  margin: 6px 0;
-}
-
-.footer-brand {
-  color: var(--shopee-orange);
-  font-size: 17px;
+  text-decoration: none;
+  font-size: 13px;
   font-weight: 700;
+  line-height: 1.25;
+  cursor: pointer;
+
+  transition: background-color 0.3s ease,
+              border-color 0.3s ease,
+              transform 0.3s ease,
+              box-shadow 0.3s ease;
 }
 
-/* =========================
-   10. MAY TINH BANG
-========================= */
-@media (max-width: 1050px) {
+/* Hiệu ứng khi di chuột */
+.product-card .buy-button:hover {
+  color: #fff;
+  background: var(--shopee-orange-dark);
+  border-color: var(--shopee-orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Hiệu ứng khi dùng bàn phím */
+.product-card .buy-button:focus-visible {
+  color: #fff;
+  background: var(--shopee-orange-dark);
+
+  outline: 4px solid #ffeb3b;
+  outline-offset: 3px;
+
+  box-shadow: 0 0 0 7px #ffffff,
+              0 0 0 10px #ff9800;
+}
+
+/* Hạn chế chuyển động nếu người dùng yêu cầu */
+@media (prefers-reduced-motion: reduce) {
+  .product-card .buy-button {
+    transition: none;
+  }
+
+  .product-card .buy-button:hover {
+    transform: none;
+  }
+}
+
+
+/* =====================================================
+   9. MAY TINH BANG
+===================================================== */
+@media (min-width: 651px) and (max-width: 1050px) {
   .header-inner {
     grid-template-columns: 175px minmax(0, 1fr) 45px;
     gap: 16px;
@@ -670,7 +729,7 @@ a {
 
   .product-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px;
+    gap: 12px;
   }
 
   .topbar-left,
@@ -678,11 +737,23 @@ a {
     gap: 6px;
     font-size: 11px;
   }
+
+  .product-info {
+    padding: 9px;
+  }
+
+  .product-card .sale-price {
+    font-size: 19px;
+  }
+
+  .product-card .product-name {
+    font-size: 13px;
+  }
 }
 
-/* =========================
-   11. DIEN THOAI
-========================= */
+/* =====================================================
+   10. DIEN THOAI
+===================================================== */
 @media (max-width: 650px) {
   .topbar-inner {
     width: calc(100% - 20px);
@@ -722,8 +793,8 @@ a {
   .brand-logo {
     width: 34px;
     height: 34px;
-    font-size: 23px;
     border-width: 2px;
+    font-size: 23px;
   }
 
   .brand-name {
@@ -805,6 +876,7 @@ a {
 
   .product-section {
     padding: 12px 9px;
+    border-radius: 9px;
   }
 
   .section-title h2 {
@@ -829,48 +901,130 @@ a {
     padding: 7px 9px;
   }
 
+  /* Mot cot san pham de giong anh mau tren dien thoai */
   .product-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
     padding-top: 12px;
+    align-items: stretch;
   }
 
+  .product-card {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    border-radius: 13px;
+    box-shadow: 0 3px 14px rgb(0 0 0 / 7%);
+  }
+
+  /* Anh rong, bo goc */
+  .product-image-link {
+    padding: 7px 10px 0;
+  }
+
+  .product-image-wrap {
+    aspect-ratio: 1.23 / 1;
+    border-radius: 10px;
+  }
+
+  .favorite-badge {
+    top: 10px;
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+
+  .discount-badge {
+    min-width: 51px;
+    padding: 5px 5px 4px;
+    font-size: 14px;
+  }
+
+  .discount-badge::after {
+    margin: 3px -5px -4px;
+    padding: 3px 4px;
+    font-size: 10px;
+  }
+
+  /* Tang khoang cach ben trong the */
   .product-info {
-    padding: 8px;
+    flex: 1;
+    min-width: 0;
+    padding: 10px 11px 13px;
   }
 
-  .product-name {
-    min-height: 39px;
+  .product-card .product-tag {
+    min-height: 20px;
+    margin-bottom: 6px;
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+
+  .product-card .product-name {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .product-card .promo-label {
+    min-height: 20px;
+    margin-bottom: 5px;
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+
+  .product-card .price-row {
+    gap: 2px 7px;
+  }
+
+  .product-card .sale-price {
+    color: var(--shopee-orange);
+    font-size: 23px;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .product-card .original-price {
     font-size: 12px;
   }
 
-  .sale-price {
-    font-size: 16px;
-  }
-
-  .original-price {
-    font-size: 10px;
-  }
-
-  .saving {
-    font-size: 10px;
-  }
-
-  .product-meta {
-    font-size: 10px;
-  }
-
-  .sold-count {
-    font-size: 9px;
-  }
-
-  .buy-button {
-    padding: 8px 3px;
+  .product-card .saving {
+    margin: 3px 0 8px;
+    padding: 2px 7px;
     font-size: 11px;
   }
+
+  .product-card .product-meta {
+    gap: 5px;
+    padding-top: 7px;
+    font-size: 12px;
+  }
+
+  .product-card .sold-count {
+    font-size: 11px;
+  }
+
+  .product-card .location {
+    margin-top: 5px;
+    font-size: 11px;
+  }
+
+  .product-card .buy-button {
+  width: 100%;
+  margin-top: auto;
+  padding: 10px 5px;
+  border: 1px solid var(--shopee-orange);
+  border-radius: 5px;
+  color: #fff;
+  background: var(--shopee-orange);
+  font-size: 13px;
+  font-weight: 700;
+}
 }
 
-/* Man hinh rat nho */
+/* =====================================================
+   11. DIEN THOAI RAT NHO
+===================================================== */
 @media (max-width: 360px) {
   .page-container {
     width: calc(100% - 10px);
@@ -881,24 +1035,77 @@ a {
   }
 
   .product-grid {
-    gap: 6px;
+    gap: 9px;
+  }
+
+  .product-image-link {
+    padding: 5px 7px 0;
   }
 
   .product-info {
-    padding: 6px;
+    padding: 8px 9px 10px;
   }
 
-  .sale-price {
+  .product-card .product-name {
     font-size: 14px;
   }
 
-  .discount-badge {
-    min-width: 40px;
+  .product-card .sale-price {
+    font-size: 21px;
+  }
+
+  .product-card .original-price {
     font-size: 11px;
+  }
+
+  .product-card .product-meta {
+    font-size: 11px;
+  }
+
+  .product-card .sold-count {
+    font-size: 10px;
+  }
+
+  .product-card .buy-button {
+    padding: 9px 4px;
+    font-size: 12px;
   }
 }
 
-/* Ho tro nguoi dung han che chuyen dong */
+/* =====================================================
+   12. GHI CHU VA CHAN TRANG
+===================================================== */
+.demo-note {
+  margin: 20px 0 0;
+  padding: 12px;
+  border-left: 3px solid #ffb49e;
+  border-radius: 0 5px 5px 0;
+  background: #fff8f5;
+  color: #777;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.site-footer {
+  padding: 25px 16px 30px;
+  color: #888;
+  text-align: center;
+  font-size: 12px;
+}
+
+.site-footer p {
+  margin: 6px 0;
+}
+
+.footer-brand {
+  color: var(--shopee-orange);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* =====================================================
+   13. HO TRO NGUOI DUNG HAN CHE CHUYEN DONG
+===================================================== */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -908,3 +1115,19 @@ a {
     animation-duration: 0.01ms !important;
   }
 }
+
+/* Bố trí danh sách sản phẩm bằng CSS Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Giữ hình ảnh sản phẩm đúng tỷ lệ hiển thị */
+.product-image {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
